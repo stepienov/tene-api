@@ -8,7 +8,6 @@ on:
 
 jobs:
   deploy:
-    name: Deploy backend to Fly.io
     runs-on: ubuntu-latest
 
     steps:
@@ -21,13 +20,10 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Build JAR
-        run: ./mvnw package -DskipTests
-
       - name: Install Flyctl
         uses: superfly/flyctl-actions/setup-flyctl@master
 
-      - name: Deploy to Fly.io
+      - name: Deploy
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
