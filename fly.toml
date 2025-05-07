@@ -4,8 +4,10 @@ primary_region = "fra"
 [build]
 dockerfile = "Dockerfile"
 
-[env]
-PORT = "8080"
+[vm]
+memory = 1024
+cpu_kind = "shared"
+cpus = 1
 
 [http_service]
 internal_port = 8080
