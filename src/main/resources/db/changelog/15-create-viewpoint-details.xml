@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+  <changeSet id="15-create-viewpoint-details" author="admin">
+    <createTable tableName="viewpoint_details">
+      <column name="poi_id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false" foreignKeyName="fk_viewpoint_poi" references="points_of_interest(id)"/>
+      </column>
+      <column name="has_ocean_view" type="BOOLEAN"/>
+      <column name="has_sunset_view" type="BOOLEAN"/>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>

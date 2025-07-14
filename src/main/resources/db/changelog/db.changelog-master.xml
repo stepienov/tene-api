@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+  <include file="db/changelog/01-create-region-directions.xml"/>
+  <include file="db/changelog/02-create-municipalities.xml"/>
+  <include file="db/changelog/03-create-point-types.xml"/>
+  <include file="db/changelog/04-create-place-attributes.xml"/>
+  <include file="db/changelog/05-create-best-time-to-visit-types.xml"/>
+  <include file="db/changelog/06-create-access-types.xml"/>
+  <include file="db/changelog/07-create-visit-duration-types.xml"/>
+  <include file="db/changelog/08-create-permits.xml"/>
+  <include file="db/changelog/09-create-permit-time-slots.xml"/>
+  <include file="db/changelog/10-create-permit-slot-days.xml"/>
+  <include file="db/changelog/11-create-points-of-interest.xml"/>
+  <include file="db/changelog/12-create-points-of-interest-types.xml"/>
+  <include file="db/changelog/13-create-points-of-interest-attributes.xml"/>
+  <include file="db/changelog/14-create-beach-details.xml"/>
+  <include file="db/changelog/15-create-viewpoint-details.xml"/>
+  <include file="db/changelog/16-create-historicalsite-details.xml"/>
+  <include file="db/changelog/17-create-restaurant-details.xml"/>
+  <include file="db/changelog/18-create-shop-details.xml"/>
+  <include file="db/changelog/19-create-adminplace-details.xml"/>
+  <include file="db/changelog/20-create-hospital-details.xml"/>
+  <include file="db/changelog/21-create-clinic-details.xml"/>
+  <include file="db/changelog/99-insert-seed-data.xml"/>
+
+</databaseChangeLog>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+  <changeSet id="99-insert-seed-data" author="admin">
+
+    <!--    VISIT DURATION    -->
+    <insert tableName="visit_duration_types">
+      <column name="id" valueNumeric="1"/>
+      <column name="duration_label" value="Up to 30 minutes"/>
+      <column name="duration_minutes" valueNumeric="30"/>
+    </insert>
+    <insert tableName="visit_duration_types">
+      <column name="id" valueNumeric="2"/>
+      <column name="duration_label" value="Up to 1 hour"/>
+      <column name="duration_minutes" valueNumeric="60"/>
+    </insert>
+    <insert tableName="visit_duration_types">
+      <column name="id" valueNumeric="3"/>
+      <column name="duration_label" value="Up to 2 hours"/>
+      <column name="duration_minutes" valueNumeric="120"/>
+    </insert>
+    <insert tableName="visit_duration_types">
+      <column name="id" valueNumeric="4"/>
+      <column name="duration_label" value="Up to 3 hours"/>
+      <column name="duration_minutes" valueNumeric="180"/>
+    </insert>
+    <insert tableName="visit_duration_types">
+      <column name="id" valueNumeric="5"/>
+      <column name="duration_label" value="Up to 4 hours"/>
+      <column name="duration_minutes" valueNumeric="240"/>
+    </insert>
+    <insert tableName="visit_duration_types">
+      <column name="id" valueNumeric="6"/>
+      <column name="duration_label" value="All day"/>
+      <column name="duration_minutes" valueNumeric="480"/>
+    </insert>
+    <insert tableName="visit_duration_types">
+      <column name="id" valueNumeric="7"/>
+      <column name="duration_label" value="More than 4 hours"/>
+      <column name="duration_minutes" valueNumeric="999"/>
+    </insert>
+    
+    <!--    ACCESS TYPES    -->
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="1"/>
+      <column name="access_type_short" value="CAR"/>
+      <column name="access_type_desc" value="By car"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="2"/>
+      <column name="access_type_short" value="FOOT"/>
+      <column name="access_type_desc" value="On foot"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="3"/>
+      <column name="access_type_short" value="BIKE"/>
+      <column name="access_type_desc" value="By bike"/>
+    </insert>
+
+    <!--    VISIT TIME    -->
+    <insert tableName="best_time_to_visit_types">
+      <column name="id" valueNumeric="1"/>
+      <column name="best_time_desc" value="Morning"/>
+      <column name="best_time_short" value="AM"/>
+    </insert>
+    <insert tableName="best_time_to_visit_types">
+      <column name="id" valueNumeric="2"/>
+      <column name="best_time_desc" value="Afternoon"/>
+      <column name="best_time_short" value="PM"/>
+    </insert>
+    <insert tableName="best_time_to_visit_types">
+      <column name="id" valueNumeric="3"/>
+      <column name="best_time_desc" value="Evening"/>
+      <column name="best_time_short" value="EV"/>
+    </insert>
+    <insert tableName="best_time_to_visit_types">
+      <column name="id" valueNumeric="4"/>
+      <column name="best_time_desc" value="All day"/>
+      <column name="best_time_short" value="ALL"/>
+    </insert>
+
+
+    <!--    REGIONS    -->
+    <insert tableName="region_directions">
+      <column name="id" valueNumeric="1"/>
+      <column name="region_direction_desc" value="North"/>
+    </insert>
+    <insert tableName="region_directions">
+      <column name="id" valueNumeric="2"/>
+      <column name="region_direction_desc" value="South"/>
+    </insert>
+    <insert tableName="region_directions">
+      <column name="id" valueNumeric="3"/>
+      <column name="region_direction_desc" value="East"/>
+    </insert>
+    <insert tableName="region_directions">
+      <column name="id" valueNumeric="4"/>
+      <column name="region_direction_desc" value="West"/>
+    </insert>
+    <insert tableName="region_directions">
+      <column name="id" valueNumeric="5"/>
+      <column name="region_direction_desc" value="Center"/>
+    </insert>
+
+    <insert tableName="points_of_interest">
+      <column name="id" valueNumeric="1"/>
+      <column name="name_of_point" value="Playa de las Teresitas"/>
+      <column name="description_of_interest" value="The most famous sandy beach in the north of Tenerife with imported Saharan sand."/>
+      <column name="latitude" valueNumeric="28.5070"/>
+      <column name="longitude" valueNumeric="-16.1867"/>
+      <column name="region_id" valueNumeric="1"/>
+      <column name="is_free" valueBoolean="true"/>
+      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="access_type_id" valueNumeric="1"/>
+      <column name="best_time_id" valueNumeric="4"/>
+    </insert>
+
+    <insert tableName="points_of_interest">
+      <column name="id" valueNumeric="2"/>
+      <column name="name_of_point" value="Playa de las Américas"/>
+      <column name="description_of_interest" value="Popular tourist beach in the south, known for nightlife and water sports."/>
+      <column name="latitude" valueNumeric="28.0630"/>
+      <column name="longitude" valueNumeric="-16.7335"/>
+      <column name="region_id" valueNumeric="2"/>
+      <column name="is_free" valueBoolean="true"/>
+      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="access_type_id" valueNumeric="1"/>
+      <column name="best_time_id" valueNumeric="4"/>
+    </insert>
+
+    <insert tableName="points_of_interest">
+      <column name="id" valueNumeric="3"/>
+      <column name="name_of_point" value="Playa del Duque"/>
+      <column name="description_of_interest" value="Upscale beach with fine sand, surrounded by luxury hotels in Costa Adeje."/>
+      <column name="latitude" valueNumeric="28.0904"/>
+      <column name="longitude" valueNumeric="-16.7369"/>
+      <column name="region_id" valueNumeric="2"/>
+      <column name="is_free" valueBoolean="true"/>
+      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="access_type_id" valueNumeric="1"/>
+      <column name="best_time_id" valueNumeric="4"/>
+    </insert>
+
+    <insert tableName="points_of_interest">
+      <column name="id" valueNumeric="4"/>
+      <column name="name_of_point" value="Playa de El Médano"/>
+      <column name="description_of_interest" value="Windsurfing and kitesurfing paradise with a windy climate on the southeast coast."/>
+      <column name="latitude" valueNumeric="28.0474"/>
+      <column name="longitude" valueNumeric="-16.5387"/>
+      <column name="region_id" valueNumeric="3"/>
+      <column name="is_free" valueBoolean="true"/>
+      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="access_type_id" valueNumeric="1"/>
+      <column name="best_time_id" valueNumeric="4"/>
+    </insert>
+
+    <insert tableName="points_of_interest">
+      <column name="id" valueNumeric="5"/>
+      <column name="name_of_point" value="Playa Jardín"/>
+      <column name="description_of_interest" value="Black volcanic sand beach in Puerto de la Cruz, surrounded by beautiful gardens."/>
+      <column name="latitude" valueNumeric="28.4156"/>
+      <column name="longitude" valueNumeric="-16.5534"/>
+      <column name="region_id" valueNumeric="1"/>
+      <column name="is_free" valueBoolean="true"/>
+      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="access_type_id" valueNumeric="1"/>
+      <column name="best_time_id" valueNumeric="4"/>
+    </insert>
+
+    <insert tableName="points_of_interest">
+      <column name="id" valueNumeric="6"/>
+      <column name="name_of_point" value="Playa de Benijo"/>
+      <column name="description_of_interest" value="Wild, scenic beach on the northeast with black sand and dramatic rocks."/>
+      <column name="latitude" valueNumeric="28.5758"/>
+      <column name="longitude" valueNumeric="-16.1863"/>
+      <column name="region_id" valueNumeric="1"/>
+      <column name="is_free" valueBoolean="true"/>
+      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="access_type_id" valueNumeric="1"/>
+      <column name="best_time_id" valueNumeric="4"/>
+    </insert>
+
+    <insert tableName="points_of_interest">
+      <column name="id" valueNumeric="7"/>
+      <column name="name_of_point" value="Playa de Los Cristianos"/>
+      <column name="description_of_interest" value="Family-friendly beach in the popular Los Cristianos resort with calm waters."/>
+      <column name="latitude" valueNumeric="28.0499"/>
+      <column name="longitude" valueNumeric="-16.7161"/>
+      <column name="region_id" valueNumeric="2"/>
+      <column name="is_free" valueBoolean="true"/>
+      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="access_type_id" valueNumeric="1"/>
+      <column name="best_time_id" valueNumeric="4"/>
+    </insert>
+
+    <insert tableName="points_of_interest">
+      <column name="id" valueNumeric="8"/>
+      <column name="name_of_point" value="Playa de La Tejita"/>
+      <column name="description_of_interest" value="Wide, quiet beach near Montaña Roja, perfect for relaxing and walking."/>
+      <column name="latitude" valueNumeric="28.0317"/>
+      <column name="longitude" valueNumeric="-16.5394"/>
+      <column name="region_id" valueNumeric="3"/>
+      <column name="is_free" valueBoolean="true"/>
+      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="access_type_id" valueNumeric="1"/>
+      <column name="best_time_id" valueNumeric="4"/>
+    </insert>
+
+    <insert tableName="points_of_interest">
+      <column name="id" valueNumeric="9"/>
+      <column name="name_of_point" value="Playa Bollullo"/>
+      <column name="description_of_interest" value="Charming black sand beach hidden among cliffs, popular with locals."/>
+      <column name="latitude" valueNumeric="28.4311"/>
+      <column name="longitude" valueNumeric="-16.5312"/>
+      <column name="region_id" valueNumeric="1"/>
+      <column name="is_free" valueBoolean="true"/>
+      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="access_type_id" valueNumeric="1"/>
+      <column name="best_time_id" valueNumeric="4"/>
+    </insert>
+
+    <!--    BEACHES    -->
+    <insert tableName="points_of_interest">
+      <column name="id" valueNumeric="10"/>
+      <column name="name_of_point" value="Playa San Juan"/>
+      <column name="description_of_interest" value="Pleasant, less crowded beach on the southwest coast, loved by locals."/>
+      <column name="latitude" valueNumeric="28.1924"/>
+      <column name="longitude" valueNumeric="-16.8114"/>
+      <column name="region_id" valueNumeric="2"/>
+      <column name="is_free" valueBoolean="true"/>
+      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="access_type_id" valueNumeric="1"/>
+      <column name="best_time_id" valueNumeric="4"/>
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

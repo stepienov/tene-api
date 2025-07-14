@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+  <changeSet id="11-create-points-of-interest" author="admin">
+    <createTable tableName="points_of_interest">
+      <column name="id" type="BIGSERIAL">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="name_of_point" type="VARCHAR(200)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="description_of_interest" type="TEXT">
+        <constraints nullable="false"/>
+      </column>
+      <column name="latitude" type="DECIMAL(9,6)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="longitude" type="DECIMAL(9,6)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="region_id" type="BIGINT">
+        <constraints nullable="false" foreignKeyName="fk_poi_region" references="region_directions(id)"/>
+      </column>
+      <column name="best_time_id" type="BIGINT">
+        <constraints nullable="false" foreignKeyName="fk_poi_best_time" references="best_time_to_visit_types(id)"/>
+      </column>
+      <column name="access_type_id" type="BIGINT">
+        <constraints nullable="false" foreignKeyName="fk_poi_access" references="access_types(id)"/>
+      </column>
+      <column name="visit_duration_id" type="BIGINT">
+        <constraints nullable="false" foreignKeyName="fk_poi_visit_duration" references="visit_duration_types(id)"/>
+      </column>
+      <column name="permit_id" type="BIGINT">
+        <constraints nullable="true" foreignKeyName="fk_poi_permit" references="permits(id)"/>
+      </column>
+      <column name="is_free" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
+      <column name="ticket_price" type="DECIMAL(10,2)"/>
+      <column name="ticket_price_resident" type="DECIMAL(10,2)"/>
+      <column name="currency_code" type="VARCHAR(3)"/>
+      <column name="tips" type="TEXT"/>
+      <column name="photo_url" type="TEXT"/>
+      <column name="opening_hours" type="VARCHAR(100)"/>
+      <column name="visitor_limit" type="INTEGER"/>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>
+

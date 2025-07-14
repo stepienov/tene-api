@@ -1,5 +1,7 @@
 package com.tenedevia.api.model;
 
+import com.tenedevia.api.model.common.Address;
+import com.tenedevia.api.model.common.GeoPoint;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +18,12 @@ public class BeachEntity {
   private Long id;
 
   private String name;
-  private String location;
   private String description;
+
+  @Embedded
+  private GeoPoint coordinates;
+
+  @Embedded
+  private Address address;
 }
+

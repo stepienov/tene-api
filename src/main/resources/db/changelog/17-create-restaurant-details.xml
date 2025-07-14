@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+  <changeSet id="17-create-restaurant-details" author="admin">
+    <createTable tableName="restaurant_details">
+      <column name="poi_id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false" foreignKeyName="fk_restaurant_poi" references="points_of_interest(id)"/>
+      </column>
+      <column name="cuisine_type" type="VARCHAR(100)"/>
+      <column name="has_vegetarian_options" type="BOOLEAN"/>
+      <column name="has_vegan_options" type="BOOLEAN"/>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>

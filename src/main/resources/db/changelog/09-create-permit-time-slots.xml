@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+  <changeSet id="09-create-permit-time-slots" author="admin">
+    <createTable tableName="permit_time_slots">
+      <column name="id" type="BIGSERIAL">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="permit_id" type="BIGINT">
+        <constraints nullable="false" foreignKeyName="fk_time_slots_permit" references="permits(id)"/>
+      </column>
+      <column name="slot_label" type="VARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="valid_from" type="TIME">
+        <constraints nullable="false"/>
+      </column>
+      <column name="valid_to" type="TIME">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>

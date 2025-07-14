@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+  <changeSet id="12-create-points-of-interest-types" author="admin">
+    <createTable tableName="points_of_interest_types">
+      <column name="poi_id" type="BIGINT">
+        <constraints nullable="false" foreignKeyName="fk_poit_poi" references="points_of_interest(id)"/>
+      </column>
+      <column name="point_type_id" type="BIGINT">
+        <constraints nullable="false" foreignKeyName="fk_poit_point_type" references="point_types(id)"/>
+      </column>
+    </createTable>
+    <addPrimaryKey tableName="points_of_interest_types" columnNames="poi_id, point_type_id" constraintName="pk_points_of_interest_types"/>
+  </changeSet>
+
+</databaseChangeLog>
