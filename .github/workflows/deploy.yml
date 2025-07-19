@@ -35,12 +35,20 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Upload application version
+      - name: Get AWS Account ID
+        id: aws-account
+        run: echo "account_id=$(aws sts get-caller-identity --query Account --output text)" >> $GITHUB_OUTPUT
+
+      - name: Upload ZIP to S3
+        run: |
+          aws s3 cp deploy.zip s3://elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ steps.aws-account.outputs.account_id }}/tene-api/deploy-${{ github.sha }}-${{ github.run_number }}.zip
+
+      - name: Create EB application version
         run: |
           aws elasticbeanstalk create-application-version \
             --application-name tene-api \
             --version-label deploy-${{ github.sha }}-${{ github.run_number }} \
-            --source-bundle S3Bucket=elasticbeanstalk-${{ secrets.AWS_REGION }}-$(aws sts get-caller-identity --query Account --output text),S3Key=/tene-api/deploy-${{ github.sha }}-${{ github.run_number }}.zip \
+            --source-bundle S3Bucket=elasticbeanstalk-${{ secrets.AWS_REGION }}-${{ steps.aws-account.outputs.account_id }},S3Key=tene-api/deploy-${{ github.sha }}-${{ github.run_number }}.zip \
             --process
 
       - name: Wait for AWS to register version
