@@ -23,9 +23,6 @@ jobs:
       - name: Install Flyctl
         uses: superfly/flyctl-actions/setup-flyctl@master
 
-      - name: Login to Fly.io
-        run: flyctl auth token ${{ secrets.FLY_API_TOKEN }}
-
       - name: Drop and recreate database
         run: |
           flyctl ssh console -a tene-db-dev -C "
