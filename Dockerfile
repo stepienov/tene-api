@@ -1,4 +1,5 @@
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
-COPY app.jar app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+COPY . .
+RUN ./mvnw clean package -DskipTests
+ENTRYPOINT ["java", "-jar", "target/*.jar"]

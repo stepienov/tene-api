@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto21
+      docker: 20
+    commands:
+      - chmod +x mvnw || true
+  pre_build:
+    commands:
+      - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 149696705324.dkr.ecr.eu-west-1.amazonaws.com
+  build:
+    commands:
+      - docker build -t tene-api .
+      - docker tag tene-api:latest 149696705324.dkr.ecr.eu-west-1.amazonaws.com/tene-api:latest
+  post_build:
+    commands:
+      - docker push 149696705324.dkr.ecr.eu-west-1.amazonaws.com/tene-api:latest
+artifacts:
+  files:
+    - imagedefinitions.json
