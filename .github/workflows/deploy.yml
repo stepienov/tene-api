@@ -23,6 +23,21 @@ jobs:
       - name: Install Flyctl
         uses: superfly/flyctl-actions/setup-flyctl@master
 
+      - name: Login to Fly.io
+        run: flyctl auth token ${{ secrets.FLY_API_TOKEN }}
+
+      - name: Drop and recreate database
+        run: |
+          flyctl ssh console -a tene-db-dev -C "
+          psql -U postgres -c \"
+          SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'tene_api_dev';
+          DROP DATABASE IF EXISTS tene_api_dev;
+          CREATE DATABASE tene_api_dev;
+          \"
+          "
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
       - name: Deploy to Fly.io
         run: flyctl deploy --remote-only --config fly.toml
         env:
