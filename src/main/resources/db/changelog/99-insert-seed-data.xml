@@ -10,55 +10,145 @@
     <!--    VISIT DURATION    -->
     <insert tableName="visit_duration_types">
       <column name="id" valueNumeric="1"/>
-      <column name="duration_label" value="Up to 30 minutes"/>
+      <column name="duration_label" value="up to 30 minutes"/>
       <column name="duration_minutes" valueNumeric="30"/>
     </insert>
     <insert tableName="visit_duration_types">
       <column name="id" valueNumeric="2"/>
-      <column name="duration_label" value="Up to 1 hour"/>
+      <column name="duration_label" value="up to 1 hour"/>
       <column name="duration_minutes" valueNumeric="60"/>
     </insert>
     <insert tableName="visit_duration_types">
       <column name="id" valueNumeric="3"/>
-      <column name="duration_label" value="Up to 2 hours"/>
+      <column name="duration_label" value="up to 2 hours"/>
       <column name="duration_minutes" valueNumeric="120"/>
     </insert>
     <insert tableName="visit_duration_types">
       <column name="id" valueNumeric="4"/>
-      <column name="duration_label" value="Up to 3 hours"/>
+      <column name="duration_label" value="up to 3 hours"/>
       <column name="duration_minutes" valueNumeric="180"/>
     </insert>
     <insert tableName="visit_duration_types">
       <column name="id" valueNumeric="5"/>
-      <column name="duration_label" value="Up to 4 hours"/>
+      <column name="duration_label" value="up to 4 hours"/>
       <column name="duration_minutes" valueNumeric="240"/>
     </insert>
     <insert tableName="visit_duration_types">
       <column name="id" valueNumeric="6"/>
-      <column name="duration_label" value="All day"/>
+      <column name="duration_label" value="all day"/>
       <column name="duration_minutes" valueNumeric="480"/>
     </insert>
     <insert tableName="visit_duration_types">
       <column name="id" valueNumeric="7"/>
-      <column name="duration_label" value="More than 4 hours"/>
+      <column name="duration_label" value="more than 4 hours"/>
       <column name="duration_minutes" valueNumeric="999"/>
     </insert>
     
     <!--    ACCESS TYPES    -->
     <insert tableName="access_types">
       <column name="id" valueNumeric="1"/>
-      <column name="access_type_short" value="CAR"/>
-      <column name="access_type_desc" value="By car"/>
+      <column name="access_type_short" value="BY CAR"/>
+      <column name="access_type_desc" value="You can drive directly by car"/>
     </insert>
     <insert tableName="access_types">
       <column name="id" valueNumeric="2"/>
-      <column name="access_type_short" value="FOOT"/>
-      <column name="access_type_desc" value="On foot"/>
+      <column name="access_type_short" value="ON FOOT ONLY"/>
+      <column name="access_type_desc" value="Access only by foot"/>
     </insert>
     <insert tableName="access_types">
       <column name="id" valueNumeric="3"/>
-      <column name="access_type_short" value="BIKE"/>
-      <column name="access_type_desc" value="By bike"/>
+      <column name="access_type_short" value="DIFFICULT ASCENT"/>
+      <column name="access_type_desc" value="Challenging access, e.g., steep or slippery"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="4"/>
+      <column name="access_type_short" value="STAIRS DESCENT"/>
+      <column name="access_type_desc" value="Access only via stairs"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="5"/>
+      <column name="access_type_short" value="WHEELCHAIR ACCESSIBLE"/>
+      <column name="access_type_desc" value="Adapted for people with disabilities"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="6"/>
+      <column name="access_type_short" value="10 MIN WALK"/>
+      <column name="access_type_desc" value="10-minute walk from parking"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="7"/>
+      <column name="access_type_short" value="OVER 30 MIN WALK"/>
+      <column name="access_type_desc" value="Long walk from parking"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="8"/>
+      <column name="access_type_short" value="PARKING FAR AWAY"/>
+      <column name="access_type_desc" value="Parking over 500 m away"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="9"/>
+      <column name="access_type_short" value="UNPAVED ROAD"/>
+      <column name="access_type_desc" value="Dirt road, no asphalt"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="10"/>
+      <column name="access_type_short" value="FERRY REQUIRED"/>
+      <column name="access_type_desc" value="Accessible only by ferry"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="11"/>
+      <column name="access_type_short" value="GUIDE ONLY"/>
+      <column name="access_type_desc" value="Access only with a licensed guide"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="12"/>
+      <column name="access_type_short" value="LIMITED ACCESS"/>
+      <column name="access_type_desc" value="Accessible only at certain hours or days"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="13"/>
+      <column name="access_type_short" value="PRIVATE LAND"/>
+      <column name="access_type_desc" value="Private property, access limited or by owner’s permission"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="14"/>
+      <column name="access_type_short" value="PAID ENTRY"/>
+      <column name="access_type_desc" value="Access requires a ticket"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="15"/>
+      <column name="access_type_short" value="SEASONAL CLOSURE"/>
+      <column name="access_type_desc" value="Accessible only during specific seasons"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="16"/>
+      <column name="access_type_short" value="WATER ACCESS"/>
+      <column name="access_type_desc" value="Accessible only from the water, e.g., by boat or kayak"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="17"/>
+      <column name="access_type_short" value="BIKE TRAIL"/>
+      <column name="access_type_desc" value="Accessible by mountain bike"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="18"/>
+      <column name="access_type_short" value="HORSE TRAIL"/>
+      <column name="access_type_desc" value="Accessible on horseback"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="19"/>
+      <column name="access_type_short" value="EXPERIENCE REQUIRED"/>
+      <column name="access_type_desc" value="Place requires experience, e.g., climbing or diving"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="20"/>
+      <column name="access_type_short" value="PROTECTED AREA"/>
+      <column name="access_type_desc" value="Protected area, restrictions apply"/>
+    </insert>
+    <insert tableName="access_types">
+      <column name="id" valueNumeric="21"/>
+      <column name="access_type_short" value="WEATHER DEPENDENT"/>
+      <column name="access_type_desc" value="Accessibility depends on weather conditions"/>
     </insert>
 
     <!--    VISIT TIME    -->
@@ -83,29 +173,198 @@
       <column name="best_time_short" value="ALL"/>
     </insert>
 
-
     <!--    REGIONS    -->
     <insert tableName="region_directions">
-      <column name="id" valueNumeric="1"/>
+      <column name="id" value="1"/>
       <column name="region_direction_desc" value="North"/>
     </insert>
     <insert tableName="region_directions">
-      <column name="id" valueNumeric="2"/>
+      <column name="id" value="2"/>
       <column name="region_direction_desc" value="South"/>
     </insert>
     <insert tableName="region_directions">
-      <column name="id" valueNumeric="3"/>
+      <column name="id" value="3"/>
       <column name="region_direction_desc" value="East"/>
     </insert>
     <insert tableName="region_directions">
-      <column name="id" valueNumeric="4"/>
-      <column name="region_direction_desc" value="West"/>
+      <column name="id" value="4"/>
+      <column name="region_direction_desc" value="Teno"/>
     </insert>
     <insert tableName="region_directions">
-      <column name="id" valueNumeric="5"/>
-      <column name="region_direction_desc" value="Center"/>
+      <column name="id" value="5"/>
+      <column name="region_direction_desc" value="Anaga"/>
+    </insert>
+    <insert tableName="region_directions">
+      <column name="id" value="6"/>
+      <column name="region_direction_desc" value="Metropolitan Area"/>
+    </insert>
+    <insert tableName="region_directions">
+      <column name="id" value="7"/>
+      <column name="region_direction_desc" value="Teide"/>
+    </insert>
+    <insert tableName="region_directions">
+      <column name="id" value="8"/>
+      <column name="region_direction_desc" value="Acentejo"/>
     </insert>
 
+    <!--    MUNICIPALITIES    -->
+    <insert tableName="municipalities">
+      <column name="id" value="1"/>
+      <column name="id_munici_direction" value="2"/>
+      <column name="munici_desc" value="Adeje"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="2"/>
+      <column name="id_munici_direction" value="3"/>
+      <column name="munici_desc" value="Arafo"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="3"/>
+      <column name="id_munici_direction" value="3"/>
+      <column name="munici_desc" value="Arico"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="4"/>
+      <column name="id_munici_direction" value="2"/>
+      <column name="munici_desc" value="Arona"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="5"/>
+      <column name="id_munici_direction" value="4"/>
+      <column name="munici_desc" value="Buenavista del Norte"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="6"/>
+      <column name="id_munici_direction" value="3"/>
+      <column name="munici_desc" value="Candelaria"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="7"/>
+      <column name="id_munici_direction" value="6"/>
+      <column name="munici_desc" value="El Rosario"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="8"/>
+      <column name="id_munici_direction" value="8"/>
+      <column name="munici_desc" value="El Sauzal"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="9"/>
+      <column name="id_munici_direction" value="4"/>
+      <column name="munici_desc" value="El Tanque"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="10"/>
+      <column name="id_munici_direction" value="3"/>
+      <column name="munici_desc" value="Fasnia"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="11"/>
+      <column name="id_munici_direction" value="1"/>
+      <column name="munici_desc" value="Garachico"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="12"/>
+      <column name="id_munici_direction" value="2"/>
+      <column name="munici_desc" value="Granadilla de Abona"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="13"/>
+      <column name="id_munici_direction" value="4"/>
+      <column name="munici_desc" value="Guía de Isora"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="14"/>
+      <column name="id_munici_direction" value="3"/>
+      <column name="munici_desc" value="Güímar"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="15"/>
+      <column name="id_munici_direction" value="1"/>
+      <column name="munici_desc" value="Icod de los Vinos"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="16"/>
+      <column name="id_munici_direction" value="1"/>
+      <column name="munici_desc" value="La Guancha"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="17"/>
+      <column name="id_munici_direction" value="8"/>
+      <column name="munici_desc" value="La Matanza de Acentejo"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="18"/>
+      <column name="id_munici_direction" value="1"/>
+      <column name="munici_desc" value="La Orotava"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="19"/>
+      <column name="id_munici_direction" value="8"/>
+      <column name="munici_desc" value="La Victoria de Acentejo"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="20"/>
+      <column name="id_munici_direction" value="1"/>
+      <column name="munici_desc" value="Los Realejos"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="21"/>
+      <column name="id_munici_direction" value="4"/>
+      <column name="munici_desc" value="Los Silos"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="22"/>
+      <column name="id_munici_direction" value="1"/>
+      <column name="munici_desc" value="Puerto de la Cruz"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="23"/>
+      <column name="id_munici_direction" value="6"/>
+      <column name="munici_desc" value="San Cristóbal de La Laguna"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="24"/>
+      <column name="id_munici_direction" value="1"/>
+      <column name="munici_desc" value="San Juan de la Rambla"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="25"/>
+      <column name="id_munici_direction" value="2"/>
+      <column name="munici_desc" value="San Miguel de Abona"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="26"/>
+      <column name="id_munici_direction" value="6"/>
+      <column name="munici_desc" value="Santa Cruz de Tenerife"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="27"/>
+      <column name="id_munici_direction" value="8"/>
+      <column name="munici_desc" value="Santa Úrsula"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="28"/>
+      <column name="id_munici_direction" value="4"/>
+      <column name="munici_desc" value="Santiago del Teide"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="29"/>
+      <column name="id_munici_direction" value="8"/>
+      <column name="munici_desc" value="Tacoronte"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="30"/>
+      <column name="id_munici_direction" value="6"/>
+      <column name="munici_desc" value="Tegueste"/>
+    </insert>
+    <insert tableName="municipalities">
+      <column name="id" value="31"/>
+      <column name="id_munici_direction" value="7"/>
+      <column name="munici_desc" value="Vilaflor de Chasna"/>
+    </insert>
+
+    <!--    BEACHES    -->
     <insert tableName="points_of_interest">
       <column name="id" valueNumeric="1"/>
       <column name="name_of_point" value="Playa de las Teresitas"/>
@@ -223,7 +482,6 @@
       <column name="best_time_id" valueNumeric="4"/>
     </insert>
 
-    <!--    BEACHES    -->
     <insert tableName="points_of_interest">
       <column name="id" valueNumeric="10"/>
       <column name="name_of_point" value="Playa San Juan"/>

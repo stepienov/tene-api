@@ -26,6 +26,7 @@
   <include file="db/changelog/19-create-adminplace-details.xml"/>
   <include file="db/changelog/20-create-hospital-details.xml"/>
   <include file="db/changelog/21-create-clinic-details.xml"/>
+  <include file="db/changelog/22-create-addresses.xml"/>
   <include file="db/changelog/99-insert-seed-data.xml"/>
 
 </databaseChangeLog>
