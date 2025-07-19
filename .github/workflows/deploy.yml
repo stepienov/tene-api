@@ -22,8 +22,11 @@ jobs:
       - name: Build project with Maven Wrapper
         run: ./mvnw package -DskipTests
 
+      - name: Prepare app.jar for Docker
+        run: cp target/*.jar app.jar
+
       - name: Create deployment package (ZIP)
-        run: zip -r deploy.zip Dock* .ebextensions target/*.jar
+        run: zip -r deploy.zip Dockerfile app.jar
 
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v21
