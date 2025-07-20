@@ -22,8 +22,8 @@
       <column name="longitude" type="DECIMAL(9,6)">
         <constraints nullable="false"/>
       </column>
-      <column name="region_id" type="BIGINT">
-        <constraints nullable="false" foreignKeyName="fk_poi_region" references="region_directions(id)"/>
+      <column name="municipality_id" type="BIGINT">
+        <constraints nullable="false" foreignKeyName="fk_poi_municipality" references="municipalities(id)"/>
       </column>
       <column name="best_time_id" type="BIGINT">
         <constraints nullable="false" foreignKeyName="fk_poi_best_time" references="best_time_to_visit_types(id)"/>

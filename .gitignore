@@ -37,3 +37,4 @@ build/
 .env
 /export-project.ps1
 /project_data.txt
+/BE-api.txt

@@ -1,6 +1,6 @@
 package com.tenedevia.api.dto;
 
-public record BeachDto(
+public record PoiDto(
     Long id,
     String name,
     String description,

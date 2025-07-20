@@ -364,6 +364,47 @@
       <column name="munici_desc" value="Vilaflor de Chasna"/>
     </insert>
 
+    <!--    POINT TYPES    -->
+    <insert tableName="point_types"><column name="id" valueNumeric="1"/><column name="point_type_desc" value="Beach"/></insert>
+    <insert tableName="point_types"><column name="id" valueNumeric="2"/><column name="point_type_desc" value="Viewpoint"/></insert>
+    <insert tableName="point_types"><column name="id" valueNumeric="3"/><column name="point_type_desc" value="Historical Site"/></insert>
+    <insert tableName="point_types"><column name="id" valueNumeric="4"/><column name="point_type_desc" value="Restaurant"/></insert>
+    <insert tableName="point_types"><column name="id" valueNumeric="5"/><column name="point_type_desc" value="Shop"/></insert>
+    <insert tableName="point_types"><column name="id" valueNumeric="6"/><column name="point_type_desc" value="Administrative Place"/></insert>
+    <insert tableName="point_types"><column name="id" valueNumeric="7"/><column name="point_type_desc" value="Hospital"/></insert>
+    <insert tableName="point_types"><column name="id" valueNumeric="8"/><column name="point_type_desc" value="Clinic"/></insert>
+
+
+    <!--    ATTRIBUTES    -->
+    <insert tableName="place_attributes"><column name="id" valueNumeric="1"/><column name="attribute_name" value="Family Friendly"/><column name="attribute_desc" value="Suitable for families with children"/></insert>
+    <insert tableName="place_attributes"><column name="id" valueNumeric="2"/><column name="attribute_name" value="Pet Friendly"/><column name="attribute_desc" value="Pets allowed"/></insert>
+    <insert tableName="place_attributes"><column name="id" valueNumeric="3"/><column name="attribute_name" value="Surf Spot"/><column name="attribute_desc" value="Popular spot for surfing"/></insert>
+    <insert tableName="place_attributes"><column name="id" valueNumeric="4"/><column name="attribute_name" value="Wheelchair Accessible"/><column name="attribute_desc" value="Accessible for people with reduced mobility"/></insert>
+    <insert tableName="place_attributes"><column name="id" valueNumeric="5"/><column name="attribute_name" value="Lifeguard Available"/><column name="attribute_desc" value="Lifeguard services provided"/></insert>
+    <insert tableName="place_attributes"><column name="id" valueNumeric="6"/><column name="attribute_name" value="Nudist Area"/><column name="attribute_desc" value="Official or tolerated nudist area"/></insert>
+
+    <!--    PERMITS    -->
+    <insert tableName="permits">
+      <column name="id" valueNumeric="1"/>
+      <column name="permit_name" value="No Permit Required"/>
+      <column name="description" value="No permit or reservation required"/>
+    </insert>
+    <insert tableName="permits">
+      <column name="id" valueNumeric="2"/>
+      <column name="permit_name" value="Free Entry with Reservation"/>
+      <column name="description" value="Reservation required, but free of charge"/>
+    </insert>
+    <insert tableName="permits">
+      <column name="id" valueNumeric="3"/>
+      <column name="permit_name" value="Paid Entry with Reservation"/>
+      <column name="description" value="Reservation required, paid ticket"/>
+    </insert>
+    <insert tableName="permits">
+      <column name="id" valueNumeric="4"/>
+      <column name="permit_name" value="Paid Entry On-site"/>
+      <column name="description" value="Ticket can be purchased on-site, no prior reservation needed"/>
+    </insert>
+
     <!--    BEACHES    -->
     <insert tableName="points_of_interest">
       <column name="id" valueNumeric="1"/>
@@ -371,11 +412,13 @@
       <column name="description_of_interest" value="The most famous sandy beach in the north of Tenerife with imported Saharan sand."/>
       <column name="latitude" valueNumeric="28.5070"/>
       <column name="longitude" valueNumeric="-16.1867"/>
-      <column name="region_id" valueNumeric="1"/>
+      <column name="municipality_id" valueNumeric="26"/>
+      <column name="address_id" valueNumeric="NULL"/>
       <column name="is_free" valueBoolean="true"/>
-      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="visit_duration_id" valueNumeric="6"/>
       <column name="access_type_id" valueNumeric="1"/>
       <column name="best_time_id" valueNumeric="4"/>
+      <column name="point_type_id" valueNumeric="1"/>
     </insert>
 
     <insert tableName="points_of_interest">
@@ -384,11 +427,13 @@
       <column name="description_of_interest" value="Popular tourist beach in the south, known for nightlife and water sports."/>
       <column name="latitude" valueNumeric="28.0630"/>
       <column name="longitude" valueNumeric="-16.7335"/>
-      <column name="region_id" valueNumeric="2"/>
+      <column name="municipality_id" valueNumeric="4"/>
+      <column name="address_id" valueNumeric="NULL"/>
       <column name="is_free" valueBoolean="true"/>
-      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="visit_duration_id" valueNumeric="6"/>
       <column name="access_type_id" valueNumeric="1"/>
       <column name="best_time_id" valueNumeric="4"/>
+      <column name="point_type_id" valueNumeric="1"/>
     </insert>
 
     <insert tableName="points_of_interest">
@@ -397,11 +442,13 @@
       <column name="description_of_interest" value="Upscale beach with fine sand, surrounded by luxury hotels in Costa Adeje."/>
       <column name="latitude" valueNumeric="28.0904"/>
       <column name="longitude" valueNumeric="-16.7369"/>
-      <column name="region_id" valueNumeric="2"/>
+      <column name="municipality_id" valueNumeric="1"/>
+      <column name="address_id" valueNumeric="NULL"/>
       <column name="is_free" valueBoolean="true"/>
-      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="visit_duration_id" valueNumeric="6"/>
       <column name="access_type_id" valueNumeric="1"/>
       <column name="best_time_id" valueNumeric="4"/>
+      <column name="point_type_id" valueNumeric="1"/>
     </insert>
 
     <insert tableName="points_of_interest">
@@ -410,11 +457,13 @@
       <column name="description_of_interest" value="Windsurfing and kitesurfing paradise with a windy climate on the southeast coast."/>
       <column name="latitude" valueNumeric="28.0474"/>
       <column name="longitude" valueNumeric="-16.5387"/>
-      <column name="region_id" valueNumeric="3"/>
+      <column name="municipality_id" valueNumeric="12"/>
+      <column name="address_id" valueNumeric="NULL"/>
       <column name="is_free" valueBoolean="true"/>
-      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="visit_duration_id" valueNumeric="6"/>
       <column name="access_type_id" valueNumeric="1"/>
       <column name="best_time_id" valueNumeric="4"/>
+      <column name="point_type_id" valueNumeric="1"/>
     </insert>
 
     <insert tableName="points_of_interest">
@@ -423,11 +472,13 @@
       <column name="description_of_interest" value="Black volcanic sand beach in Puerto de la Cruz, surrounded by beautiful gardens."/>
       <column name="latitude" valueNumeric="28.4156"/>
       <column name="longitude" valueNumeric="-16.5534"/>
-      <column name="region_id" valueNumeric="1"/>
+      <column name="municipality_id" valueNumeric="22"/>
+      <column name="address_id" valueNumeric="NULL"/>
       <column name="is_free" valueBoolean="true"/>
-      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="visit_duration_id" valueNumeric="6"/>
       <column name="access_type_id" valueNumeric="1"/>
       <column name="best_time_id" valueNumeric="4"/>
+      <column name="point_type_id" valueNumeric="1"/>
     </insert>
 
     <insert tableName="points_of_interest">
@@ -436,11 +487,13 @@
       <column name="description_of_interest" value="Wild, scenic beach on the northeast with black sand and dramatic rocks."/>
       <column name="latitude" valueNumeric="28.5758"/>
       <column name="longitude" valueNumeric="-16.1863"/>
-      <column name="region_id" valueNumeric="1"/>
+      <column name="municipality_id" valueNumeric="26"/>
+      <column name="address_id" valueNumeric="NULL"/>
       <column name="is_free" valueBoolean="true"/>
-      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="visit_duration_id" valueNumeric="6"/>
       <column name="access_type_id" valueNumeric="1"/>
       <column name="best_time_id" valueNumeric="4"/>
+      <column name="point_type_id" valueNumeric="1"/>
     </insert>
 
     <insert tableName="points_of_interest">
@@ -449,11 +502,13 @@
       <column name="description_of_interest" value="Family-friendly beach in the popular Los Cristianos resort with calm waters."/>
       <column name="latitude" valueNumeric="28.0499"/>
       <column name="longitude" valueNumeric="-16.7161"/>
-      <column name="region_id" valueNumeric="2"/>
+      <column name="municipality_id" valueNumeric="4"/>
+      <column name="address_id" valueNumeric="NULL"/>
       <column name="is_free" valueBoolean="true"/>
-      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="visit_duration_id" valueNumeric="6"/>
       <column name="access_type_id" valueNumeric="1"/>
       <column name="best_time_id" valueNumeric="4"/>
+      <column name="point_type_id" valueNumeric="1"/>
     </insert>
 
     <insert tableName="points_of_interest">
@@ -462,11 +517,13 @@
       <column name="description_of_interest" value="Wide, quiet beach near Montaña Roja, perfect for relaxing and walking."/>
       <column name="latitude" valueNumeric="28.0317"/>
       <column name="longitude" valueNumeric="-16.5394"/>
-      <column name="region_id" valueNumeric="3"/>
+      <column name="municipality_id" valueNumeric="12"/>
+      <column name="address_id" valueNumeric="NULL"/>
       <column name="is_free" valueBoolean="true"/>
-      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="visit_duration_id" valueNumeric="6"/>
       <column name="access_type_id" valueNumeric="1"/>
       <column name="best_time_id" valueNumeric="4"/>
+      <column name="point_type_id" valueNumeric="1"/>
     </insert>
 
     <insert tableName="points_of_interest">
@@ -475,11 +532,13 @@
       <column name="description_of_interest" value="Charming black sand beach hidden among cliffs, popular with locals."/>
       <column name="latitude" valueNumeric="28.4311"/>
       <column name="longitude" valueNumeric="-16.5312"/>
-      <column name="region_id" valueNumeric="1"/>
+      <column name="municipality_id" valueNumeric="18"/>
+      <column name="address_id" valueNumeric="NULL"/>
       <column name="is_free" valueBoolean="true"/>
-      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="visit_duration_id" valueNumeric="6"/>
       <column name="access_type_id" valueNumeric="1"/>
       <column name="best_time_id" valueNumeric="4"/>
+      <column name="point_type_id" valueNumeric="1"/>
     </insert>
 
     <insert tableName="points_of_interest">
@@ -488,12 +547,87 @@
       <column name="description_of_interest" value="Pleasant, less crowded beach on the southwest coast, loved by locals."/>
       <column name="latitude" valueNumeric="28.1924"/>
       <column name="longitude" valueNumeric="-16.8114"/>
-      <column name="region_id" valueNumeric="2"/>
+      <column name="municipality_id" valueNumeric="13"/>
+      <column name="address_id" valueNumeric="NULL"/>
       <column name="is_free" valueBoolean="true"/>
-      <column name="visit_duration_id" valueNumeric="3"/>
+      <column name="visit_duration_id" valueNumeric="6"/>
       <column name="access_type_id" valueNumeric="1"/>
       <column name="best_time_id" valueNumeric="4"/>
+      <column name="point_type_id" valueNumeric="1"/>
     </insert>
+
+    <!-- BEACH_DETAILS INSERTS -->
+    <insert tableName="beach_details">
+      <column name="poi_id" valueNumeric="1"/>
+      <column name="is_sandy" valueBoolean="true"/>
+      <column name="has_shower" valueBoolean="true"/>
+      <column name="has_lifeguard" valueBoolean="true"/>
+    </insert>
+
+    <insert tableName="beach_details">
+      <column name="poi_id" valueNumeric="2"/>
+      <column name="is_sandy" valueBoolean="true"/>
+      <column name="has_shower" valueBoolean="true"/>
+      <column name="has_lifeguard" valueBoolean="true"/>
+    </insert>
+
+    <insert tableName="beach_details">
+      <column name="poi_id" valueNumeric="3"/>
+      <column name="is_sandy" valueBoolean="true"/>
+      <column name="has_shower" valueBoolean="true"/>
+      <column name="has_lifeguard" valueBoolean="true"/>
+    </insert>
+
+    <insert tableName="beach_details">
+      <column name="poi_id" valueNumeric="4"/>
+      <column name="is_sandy" valueBoolean="true"/>
+      <column name="has_shower" valueBoolean="true"/>
+      <column name="has_lifeguard" valueBoolean="true"/>
+    </insert>
+
+    <insert tableName="beach_details">
+      <column name="poi_id" valueNumeric="5"/>
+      <column name="is_sandy" valueBoolean="false"/>  <!-- czarny piasek, wulkaniczny -->
+      <column name="has_shower" valueBoolean="true"/>
+      <column name="has_lifeguard" valueBoolean="false"/> <!-- często brak ratownika -->
+    </insert>
+
+    <insert tableName="beach_details">
+      <column name="poi_id" valueNumeric="6"/>
+      <column name="is_sandy" valueBoolean="false"/>  <!-- czarny piasek -->
+      <column name="has_shower" valueBoolean="false"/> <!-- brak pryszniców -->
+      <column name="has_lifeguard" valueBoolean="true"/> <!-- są ratownicy -->
+    </insert>
+
+    <insert tableName="beach_details">
+      <column name="poi_id" valueNumeric="7"/>
+      <column name="is_sandy" valueBoolean="true"/>
+      <column name="has_shower" valueBoolean="true"/>
+      <column name="has_lifeguard" valueBoolean="true"/>
+    </insert>
+
+    <insert tableName="beach_details">
+      <column name="poi_id" valueNumeric="8"/>
+      <column name="is_sandy" valueBoolean="true"/>
+      <column name="has_shower" valueBoolean="false"/> <!-- brak pryszniców -->
+      <column name="has_lifeguard" valueBoolean="false"/> <!-- brak ratownika -->
+    </insert>
+
+    <insert tableName="beach_details">
+      <column name="poi_id" valueNumeric="9"/>
+      <column name="is_sandy" valueBoolean="false"/>  <!-- czarny piasek -->
+      <column name="has_shower" valueBoolean="false"/>
+      <column name="has_lifeguard" valueBoolean="true"/>
+    </insert>
+
+    <insert tableName="beach_details">
+      <column name="poi_id" valueNumeric="10"/>
+      <column name="is_sandy" valueBoolean="false"/> <!-- mieszany, ale przeważa ciemny -->
+      <column name="has_shower" valueBoolean="true"/>
+      <column name="has_lifeguard" valueBoolean="true"/>
+    </insert>
+
+
   </changeSet>
 
 </databaseChangeLog>

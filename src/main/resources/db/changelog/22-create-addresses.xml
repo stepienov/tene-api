@@ -34,7 +34,8 @@
 
   <changeSet id="13-add-address-id-to-poi" author="admin">
     <addColumn tableName="points_of_interest">
-      <column name="address_id" type="BIGINT"/>
+      <column name="address_id" type="BIGINT">
+      </column>
     </addColumn>
     <addForeignKeyConstraint
       baseTableName="points_of_interest"
