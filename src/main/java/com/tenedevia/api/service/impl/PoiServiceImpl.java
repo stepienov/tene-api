@@ -2,15 +2,15 @@ package com.tenedevia.api.service.impl;
 
 import com.tenedevia.api.dto.PoiDto;
 import com.tenedevia.api.dto.PoiSearchRequest;
+import com.tenedevia.api.dto.WeatherDto;
 import com.tenedevia.api.mapper.PoiMapper;
 import com.tenedevia.api.model.PoiEntity;
-import com.tenedevia.api.query.PoiQueryBuilder;
 import com.tenedevia.api.repository.PoiRepository;
 import com.tenedevia.api.service.PoiService;
+import com.tenedevia.api.service.WeatherService;
+import com.tenedevia.api.specification.PoiSpecification;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,19 +20,52 @@ import java.util.List;
 public class PoiServiceImpl implements PoiService {
 
   private final PoiRepository poiRepository;
-  private final PoiQueryBuilder queryBuilder;
   private final PoiMapper poiMapper;
+  private final WeatherService weatherService;
 
   @Override
   public Page<PoiDto> searchPois(PoiSearchRequest request) {
-    String countSql = queryBuilder.buildCountQuery(request.filters());
-    int total = poiRepository.countPois(countSql);
+    String sortField = mapSortField(request.sort());
+    Pageable pageable = PageRequest.of(
+        request.page(),
+        request.size(),
+        Sort.by(sortField != null ? sortField : "id")
+    );
 
-    String selectSql = queryBuilder.buildSelectQuery(request.filters(), request.page(), request.size(), request.sort());
-    List<PoiEntity> pageEntities = poiRepository.findAllPois(selectSql);
+    var spec = PoiSpecification.withFilters(request.filters());
+    Page<PoiEntity> entityPage = poiRepository.findAll(spec, pageable);
 
-    List<PoiDto> pageDtos = pageEntities.stream().map(poiMapper::toDto).toList();
+    List<PoiDto> dtoList = entityPage.stream()
+        .map(entity -> {
+          WeatherDto weather = null;
+          if (entity.getCoordinates() != null) {
+            String loc = entity.getCoordinates().getLatitude() + "," + entity.getCoordinates().getLongitude();
+            weather = weatherService.getWeatherForLocation(loc);
+          }
+          return new PoiDto(
+              entity.getId(),
+              entity.getName(),
+              entity.getDescription(),
+              poiMapper.toDto(entity.getCoordinates()),
+              entity.getMunicipality() != null ? entity.getMunicipality().getMuniciDesc() : null,
+              entity.getMunicipality() != null && entity.getMunicipality().getRegion() != null
+                  ? entity.getMunicipality().getRegion().getRegionDirectionDesc()
+                  : null,
+              weather
+          );
+        })
+        .toList();
 
-    return new PageImpl<>(pageDtos, PageRequest.of(request.page(), request.size()), total);
+    return new PageImpl<>(dtoList, pageable, entityPage.getTotalElements());
+  }
+
+  private String mapSortField(String sort) {
+    if (sort == null || sort.isBlank()) return "id";
+    return switch (sort) {
+      case "poi.name" -> "name";
+      case "municipality.name" -> "municipality.municiDesc";
+      case "region.name" -> "municipality.region.regionDirectionDesc";
+      default -> sort;
+    };
   }
 }

@@ -17,6 +17,7 @@ public class PoiController {
 
   @PostMapping("/search")
   public Page<PoiDto> searchPois(@RequestBody PoiSearchRequest request) {
+    System.out.println(request);
     return poiService.searchPois(request);
   }
 }

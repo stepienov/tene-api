@@ -5,6 +5,7 @@ public record PoiDto(
     String name,
     String description,
     GeoPointDto coordinates,
-    AddressDto address,
+    String municipality,
+    String region,
     WeatherDto weather
 ) {}

@@ -1,6 +1,5 @@
 package com.tenedevia.api.model;
 
-import com.tenedevia.api.model.common.Address;
 import com.tenedevia.api.model.common.GeoPoint;
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,6 +7,7 @@ import lombok.*;
 @Entity
 @Table(name = "points_of_interest")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -30,5 +30,30 @@ public class PoiEntity {
   })
   private GeoPoint coordinates;
 
-}
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "municipality_id")
+  private MunicipalityEntity municipality;
 
+  @OneToOne(fetch = FetchType.LAZY, mappedBy = "poi")
+  private BeachDetailsEntity beachDetails;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "access_type_id")
+  private AccessTypeEntity accessType;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "visit_duration_id")
+  private VisitDurationTypeEntity visitDurationType;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "point_type_id")
+  private PointTypeEntity pointType;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "best_time_id")
+  private BestTimeToVisitTypeEntity bestTimeToVisitType;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "permit_id")
+  private PermitEntity permit;
+}
