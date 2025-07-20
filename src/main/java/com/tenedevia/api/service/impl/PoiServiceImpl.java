@@ -62,7 +62,7 @@ public class PoiServiceImpl implements PoiService {
   private String mapSortField(String sort) {
     if (sort == null || sort.isBlank()) return "id";
     return switch (sort) {
-      case "poi.name" -> "name";
+      case "poi.name", "name" -> "name";
       case "municipality.name" -> "municipality.municiDesc";
       case "region.name" -> "municipality.region.regionDirectionDesc";
       default -> sort;
